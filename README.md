@@ -44,50 +44,14 @@ Traditional dining flows involve repetitive human effort, delays and miscommunic
 - Enables deep personalization.
 - Improves operational efficiency.
 
-## Suggested Tech Stack (End-to-End)
+## Current Tech Stack
 
-This stack is modular so each restaurant can start small and scale.
+We are keeping the stack simple for fast iteration and local Wi-Fi deployment.
 
-### Core Platform
-- Backend: Node.js (NestJS) or Python (FastAPI) for service orchestration.
-- API: REST + GraphQL for flexible menu, booking, and personalization access.
-- Database: PostgreSQL for core data, Redis for caching and queues.
-- Messaging: Kafka or RabbitMQ for event-driven workflows.
-- Search/Recommendations: OpenSearch or Elasticsearch for menu and user taste indexing.
-
-### AI and Personalization
-- ML Frameworks: PyTorch or TensorFlow.
-- Recommender: implicit feedback model + content-based features (diet, time, region).
-- Feature Store: Feast for online/offline features.
-- Model Serving: TorchServe or KFServing.
-- Experiment Tracking: MLflow.
-
-### Computer Vision and Sensors
-- Entry detection and occupancy: OpenCV + edge camera devices.
-- Table presence and heatmaps: depth sensors or BLE beacons.
-- Edge runtime: NVIDIA Jetson or Intel NUC with Docker.
-
-### Frontend and Customer Interfaces
-- Web: React (Next.js) for booking and account personalization.
-- Mobile: Flutter or React Native for iOS/Android.
-- Table UI: Web-based kiosk UI with offline-first cache.
-- Video calls: WebRTC for kitchen interaction.
-
-### IoT and Robotics
-- Robot control: ROS 2 for navigation and delivery workflows.
-- Fleet management: custom service with MQTT.
-- IoT messaging: MQTT broker (EMQX or Mosquitto).
-
-### Immersive Ambience
-- Projection and lighting: DMX or Art-Net control systems.
-- AR content: Three.js or Unity for table projection scenes.
-
-### Cloud and Ops
-- Cloud: AWS, GCP, or Azure.
-- Containers: Docker + Kubernetes.
-- Observability: Prometheus + Grafana, OpenTelemetry.
-- Auth: OAuth 2.0 + OpenID Connect.
-- CDN: CloudFront or Cloudflare for global latency.
+- Frontend: React for table UI and staff dashboard.
+- Backend: Python (FastAPI) for APIs + WebSocket server.
+- AI: Python services (same stack or separate service).
+- Optional later: Java service only for high-throughput enterprise integrations.
 
 ## Future Scope
 

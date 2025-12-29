@@ -21,12 +21,10 @@ Goal: deliver a working, end-to-end demo that proves the experience flow.
 
 ### MVP Tech Stack (Lean)
 
-- Frontend: React (Next.js) or Vite + React.
-- Backend: Python (FastAPI) or Node.js (Express).
-- Database: SQLite for speed, upgrade path to Postgres.
-- Recommender: rules + lightweight scoring (no heavy ML).
-- Realtime updates: WebSocket (optional).
-- Hosting: Render, Vercel, or Railway.
+- Frontend: React for table UI and staff dashboard.
+- Backend: Python (FastAPI) for REST + WebSocket.
+- AI: Python services (same app or separate service).
+- Data: SQLite for MVP, upgrade to PostgreSQL later.
 
 ### MVP Deliverables
 
@@ -56,17 +54,10 @@ Goal: production-ready, multi-location platform with AI personalization and auto
 
 ### Enterprise Tech Stack (Scalable)
 
-- Backend: Node.js (NestJS) or Python (FastAPI).
-- API: REST + GraphQL gateway.
-- Database: PostgreSQL + Redis.
-- Search and personalization: OpenSearch + feature store (Feast).
-- ML platform: PyTorch/TensorFlow + MLflow.
-- Messaging: Kafka or RabbitMQ.
-- IoT: MQTT broker (EMQX or Mosquitto).
-- Robotics: ROS 2 for navigation and fleet control.
-- Video calls: WebRTC.
-- Cloud: AWS/GCP/Azure + Kubernetes.
-- Observability: OpenTelemetry + Prometheus + Grafana.
+- Frontend: React for table UI and staff dashboard.
+- Backend: Python (FastAPI) for APIs + WebSocket server.
+- AI: Python services (same stack or separate service).
+- Optional later: Java service only if high-throughput integrations require it.
 
 ## Roadmap (Step-by-Step)
 
@@ -76,6 +67,33 @@ Goal: production-ready, multi-location platform with AI personalization and auto
 4. Add multi-location support and data sync.
 5. Integrate sensors and robotics.
 6. Harden security, monitoring, and compliance.
+
+## Local Network Architecture (Recommended)
+
+For a local Wi-Fi setup where table devices connect to a main server PC, keep the stack simple and Python-first.
+
+### Why Python-First
+
+- AI services are already in Python, so no cross-language friction.
+- FastAPI provides strong WebSocket support for real-time table events.
+- Faster hackathon iteration with one backend stack.
+
+### Recommended Stack
+
+- Frontend: React for table UI and staff dashboard.
+- Backend: Python (FastAPI) for REST + WebSocket.
+- AI: Python services (same app or separate microservice).
+- Data: SQLite for MVP, upgrade to PostgreSQL later.
+
+### Detailed Diagrams (SVG)
+
+- Architecture overview: `documentation/architecture-overview.svg`
+- Detailed sequence: `documentation/sequence-detailed.svg`
+- Deployment topology: `documentation/deployment-topology.svg`
+
+### When to Add Java
+
+Only add Java later if you need enterprise-specific integrations or heavy throughput where a JVM service adds clear value. For the MVP, Python keeps everything unified and faster to build.
 
 ## Notes
 
