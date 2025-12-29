@@ -66,6 +66,57 @@ We are keeping the stack simple for fast iteration and local Wi-Fi deployment.
 - `Backend` for APIs, AI services, and orchestration.
 - `Frontend` for customer and staff apps.
 
+## Quick Start (Local Wi-Fi MVP)
+
+Single command (server only):
+
+```bash
+python launch_server.py
+```
+
+Backend:
+
+```bash
+cd Backend
+pip install -r requirements.txt
+python -m uvicorn app.main:app --host 0.0.0.0 --port 8000
+```
+
+Frontend:
+
+Open `Frontend/customer.html` for customers and `Frontend/admin.html` for the admin dashboard. Use the discovery helper if needed:
+
+```bash
+python Frontend/discover_server.py
+```
+
+Default credentials:
+
+- Customer login: `demo` / `demo123`
+- Admin login: `admin` / `admin123`
+
+Customer registration:
+
+- Use the Register button on the customer screen to create a new user.
+
+Customer auto-discovery (on each customer machine):
+
+```bash
+python Frontend/launch_customer.py
+```
+
+Admin auto-discovery (on any admin machine):
+
+```bash
+python Frontend/launch_admin.py
+```
+
+Local testing (server + admin + customer on same machine):
+
+```bash
+python start.py
+```
+
 ## Vision
 
 Smart Restaurant aims to become the standard operating system for restaurants, redefining hospitality by combining technology, personalization, and efficiency without removing the human touch.
