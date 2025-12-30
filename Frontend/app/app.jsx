@@ -1,6 +1,9 @@
 function App() {
   const route = useHashRoute("landing");
   const isLanding = route === "landing";
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [route]);
   return (
     <>
       <header>

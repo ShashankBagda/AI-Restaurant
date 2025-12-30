@@ -6,7 +6,7 @@ function LandingView() {
   return (
     <div className="container landing">
       <div className="page-hero fade-up">
-        <div className="card hero">
+        <div className="card hero card-ornate">
           <div className="hero-accent" />
           <div className="badge-row">
             <span className="badge">MVP live</span>
@@ -43,12 +43,14 @@ function LandingView() {
             <path d="M170 118L176 124L186 108" stroke="#2D6A75" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
+        <FoodDecor className="decor-right" />
       </div>
 
       <div className="section-title fade-up">
         <h3>Experience Flow</h3>
         <p className="status">A redesigned journey from arrival to feedback.</p>
       </div>
+      <div className="divider-pattern" />
       <div className="flow-grid">
         {[
           ["01", "Entry & seating", "AI assigns the best table based on party size, preference, and occasion."],
@@ -67,7 +69,7 @@ function LandingView() {
       </div>
 
       <div className="info-grid" style={{ marginTop: 20 }}>
-        <div className="card fade-up">
+        <div className="card fade-up card-ornate">
           <h3>Local network topology</h3>
           <p className="status">
             A main server PC orchestrates orders. Customer tablets and kitchen screens
@@ -80,7 +82,7 @@ function LandingView() {
             <div className="node">Kitchen</div>
           </div>
         </div>
-        <div className="card fade-up">
+        <div className="card fade-up card-ornate">
           <h3>Built for the future</h3>
           <p className="status">
             Multi-language support, AI-driven kitchen optimization, IoT integrations,
@@ -98,7 +100,8 @@ function LandingView() {
         <h3>End-to-end automation map</h3>
         <p className="status">See how every station syncs from entry to feedback.</p>
       </div>
-      <div className="diagram-card fade-up">
+      <div className="divider-pattern" />
+      <div className="diagram-card fade-up card-ornate">
         <div className="diagram-track">
           <div className="diagram-node">
             <div className="node-icon">01</div>
@@ -136,14 +139,16 @@ function LandingView() {
             </div>
           </div>
         </div>
+        <FoodDecor className="decor-left" />
       </div>
 
       <div className="section-title fade-up" style={{ marginTop: 24 }}>
         <h3>Table UI preview</h3>
         <p className="status">A quick look at the customer table experience.</p>
       </div>
+      <div className="divider-pattern" />
       <div className="mock-grid">
-        <div className="mock-card fade-up">
+        <div className="mock-card fade-up card-ornate">
           <div className="mock-header">
             <div>
               <strong>Table T1</strong>
@@ -209,7 +214,7 @@ function LandingView() {
             </div>
           </div>
         </div>
-        <div className="card fade-up">
+        <div className="card fade-up card-ornate">
           <h3>Immersive ambience</h3>
           <p className="status">
             The system adapts lighting, table projection, and playlist to match the occasion.
@@ -222,6 +227,7 @@ function LandingView() {
           <div className="status" style={{ marginTop: 10 }}>
             Example: Anniversary theme, warm lighting, and curated dessert picks.
           </div>
+          <FoodDecor className="decor-right subtle" />
         </div>
       </div>
 

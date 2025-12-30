@@ -286,7 +286,7 @@ function CustomerView() {
   return (
     <div className="container">
       <div className="page-hero fade-up">
-        <div className="card hero">
+        <div className="card hero card-ornate">
           <div className="hero-accent" />
           <h2>Table service, upgraded</h2>
           <p className="status">
@@ -318,9 +318,10 @@ function CustomerView() {
             <rect x="136" y="120" width="64" height="12" rx="6" fill="#7A8F5B"/>
           </svg>
         </div>
+        <FoodDecor className="decor-right" />
       </div>
 
-      <div className="card hero fade-up">
+      <div className="card hero fade-up card-ornate">
         <div className="row" style={{ justifyContent: "space-between" }}>
           <div>
             <h2>Fresh, fast, and made for you</h2>
@@ -355,7 +356,7 @@ function CustomerView() {
             </div>
           </div>
         </div>
-      <div className="card-inline" style={{ marginTop: 16 }}>
+        <div className="card-inline card-ornate" style={{ marginTop: 16 }}>
           <div className="row" style={{ justifyContent: "space-between" }}>
             <h3>Immersive ambience</h3>
             <div className="status">Tap a theme to refresh the table mood</div>
@@ -420,10 +421,11 @@ function CustomerView() {
             );
           })()}
         </div>
+        <FoodDecor className="decor-left subtle" />
       </div>
 
       <div className="grid grid-2" style={{ marginTop: 20 }}>
-        <div className="card fade-up">
+        <div className="card fade-up card-ornate">
           <div className="row" style={{ justifyContent: "space-between" }}>
             <h3>Menu</h3>
             <button className="btn btn-secondary" onClick={loadMenu}>Refresh</button>
@@ -454,7 +456,7 @@ function CustomerView() {
           </div>
         </div>
 
-        <div className="card fade-up">
+        <div className="card fade-up card-ornate">
           <div className="row" style={{ justifyContent: "space-between" }}>
             <h3>AI Recommendations</h3>
             <button className="btn btn-secondary" onClick={loadRecommendations}>Refresh</button>
@@ -474,7 +476,7 @@ function CustomerView() {
       </div>
 
       <div className="grid grid-2" style={{ marginTop: 20 }}>
-        <div className="card fade-up">
+        <div className="card fade-up card-ornate">
           <h3>Cart</h3>
           {Object.values(cart).map((entry) => (
             <div key={entry.item.id} className="cart-item">
@@ -501,7 +503,7 @@ function CustomerView() {
           <div className="status">{checkoutStatus}</div>
         </div>
 
-        <div className="card fade-up">
+        <div className="card fade-up card-ornate">
           <h3>Order Status</h3>
           <div className="status">{orderStatus}</div>
           <div style={{ marginTop: 12 }}>

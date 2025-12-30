@@ -78,7 +78,7 @@ function KitchenView() {
   return (
     <div className="container">
       <div className="page-hero fade-up">
-        <div className="card hero">
+        <div className="card hero card-ornate">
           <div className="hero-accent" />
           <h2>Kitchen flow</h2>
           <p className="status">
@@ -106,9 +106,10 @@ function KitchenView() {
             <path d="M176 112H192" stroke="#2D6A75" strokeWidth="3" strokeLinecap="round"/>
           </svg>
         </div>
+        <FoodDecor className="decor-right subtle" />
       </div>
 
-      <div className="card fade-up">
+      <div className="card fade-up card-ornate">
         <h3>Chef Login</h3>
         <div className="row">
           <select value={userId} onChange={(e) => {
@@ -129,7 +130,7 @@ function KitchenView() {
         <div className="status">{status}</div>
       </div>
 
-      <div className="card fade-up">
+      <div className="card fade-up card-ornate">
         <div className="row" style={{ justifyContent: "space-between" }}>
           <h3>Orders (Filtered)</h3>
           <button className="btn btn-secondary" onClick={refreshOrders}>Refresh</button>

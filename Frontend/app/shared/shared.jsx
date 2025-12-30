@@ -16,7 +16,10 @@ function useHashRoute(defaultRoute) {
   };
   const [route, setRoute] = useState(getRoute());
   useEffect(() => {
-    const handler = () => setRoute(getRoute());
+    const handler = () => {
+      setRoute(getRoute());
+      window.scrollTo(0, 0);
+    };
     window.addEventListener("hashchange", handler);
     return () => window.removeEventListener("hashchange", handler);
   }, []);
@@ -50,4 +53,8 @@ function Nav({ route }) {
       </button>
     </div>
   );
+}
+
+function FoodDecor({ className = "" }) {
+  return null;
 }

@@ -147,7 +147,7 @@ function AdminView() {
   return (
     <div className="container">
       <div className="page-hero fade-up">
-        <div className="card hero">
+        <div className="card hero card-ornate">
           <div className="hero-accent" />
           <h2>Command center</h2>
           <p className="status">
@@ -180,9 +180,10 @@ function AdminView() {
             <path d="M168 92L178 102L192 84" stroke="#2D6A75" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
+        <FoodDecor className="decor-right subtle" />
       </div>
 
-      <div className="card fade-up">
+      <div className="card fade-up card-ornate">
         <h3>Admin Login</h3>
         <div className="row">
           <input className="input" value={deviceId} onChange={(e) => setDeviceId(e.target.value)} placeholder="Device ID" />
@@ -194,7 +195,7 @@ function AdminView() {
         <div className="status">{status}</div>
       </div>
 
-      <div className="card fade-up" style={{ marginTop: 20 }}>
+      <div className="card fade-up card-ornate" style={{ marginTop: 20 }}>
         <div className="row">
           {["overview", "orders", "inventory", "billing", "users", "menu"].map((item) => (
             <button
@@ -210,7 +211,7 @@ function AdminView() {
 
       {tab === "overview" && (
         <div className="grid grid-2" style={{ marginTop: 20 }}>
-          <div className="card fade-up">
+          <div className="card fade-up card-ornate">
             <h3>Systems Online ({clients.length})</h3>
             <div className="row">
               <button className="btn btn-secondary" onClick={refreshClients}>Refresh</button>
@@ -226,7 +227,7 @@ function AdminView() {
             ))}
           </div>
 
-          <div className="card fade-up">
+          <div className="card fade-up card-ornate">
             <h3>Billing</h3>
             <div className="status">Total: $ {billingTotal.toFixed(2)}</div>
             {billing.map((payment) => (
@@ -240,7 +241,7 @@ function AdminView() {
       )}
 
       {tab === "orders" && (
-        <div className="card fade-up" style={{ marginTop: 20 }}>
+        <div className="card fade-up card-ornate" style={{ marginTop: 20 }}>
           <div className="row" style={{ justifyContent: "space-between" }}>
             <h3>Orders</h3>
             <input className="input input-inline" value={tableFilter} onChange={(e) => setTableFilter(e.target.value)} placeholder="Filter by table" />
@@ -281,7 +282,7 @@ function AdminView() {
 
       {tab === "inventory" && (
         <div className="grid grid-2" style={{ marginTop: 20 }}>
-          <div className="card fade-up">
+          <div className="card fade-up card-ornate">
             <h3>Inventory</h3>
             {inventory.map((item) => (
               <div key={item.item_id} className="list-item">
@@ -293,12 +294,14 @@ function AdminView() {
             ))}
             <button className="btn btn-secondary" onClick={refreshInventory}>Refresh</button>
           </div>
-          <InventoryChart items={inventory} />
+          <div className="card fade-up card-ornate">
+            <InventoryChart items={inventory} />
+          </div>
         </div>
       )}
 
       {tab === "billing" && (
-        <div className="card fade-up" style={{ marginTop: 20 }}>
+        <div className="card fade-up card-ornate" style={{ marginTop: 20 }}>
           <h3>Billing</h3>
           <div className="status">Total: $ {billingTotal.toFixed(2)}</div>
           {billing.map((payment) => (
@@ -311,14 +314,14 @@ function AdminView() {
       )}
 
       {tab === "users" && (
-        <div className="card fade-up" style={{ marginTop: 20 }}>
+        <div className="card fade-up card-ornate" style={{ marginTop: 20 }}>
           <h3>User Management</h3>
           <UserManager users={users} headers={headers} onRefresh={refreshUsers} />
         </div>
       )}
 
       {tab === "menu" && (
-        <div className="card fade-up" style={{ marginTop: 20 }}>
+        <div className="card fade-up card-ornate" style={{ marginTop: 20 }}>
           <h3>Menu Management</h3>
           <MenuManager menu={menu} headers={headers} onRefresh={refreshMenu} />
         </div>
@@ -506,7 +509,7 @@ function MenuManager({ menu, headers, onRefresh }) {
 function InventoryChart({ items }) {
   const maxStock = items.reduce((max, item) => Math.max(max, item.stock || 0), 1);
   return (
-    <div className="card fade-up">
+    <div className="card fade-up card-ornate">
       <h3>Inventory Chart</h3>
       {items.map((item) => {
         const percent = Math.round(((item.stock || 0) / maxStock) * 100);

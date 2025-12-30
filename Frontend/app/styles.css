@@ -27,6 +27,21 @@ body {
     linear-gradient(135deg, var(--bg), var(--bg-alt));
   color: var(--ink);
   min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.4), transparent 55%),
+    radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.25), transparent 60%),
+    radial-gradient(circle at 30% 80%, rgba(255, 255, 255, 0.2), transparent 55%);
+  opacity: 0.8;
+  pointer-events: none;
+  animation: ambientGlow 18s ease-in-out infinite;
+  z-index: -1;
 }
 
 body[data-theme="luxury"] {
@@ -311,6 +326,30 @@ header {
   overflow: hidden;
 }
 
+.card-ornate::before,
+.card-ornate::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  opacity: 0.25;
+  pointer-events: none;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 20% 20%, var(--accent) 0, transparent 55%),
+    radial-gradient(circle at 80% 80%, var(--accent-2) 0, transparent 60%);
+}
+
+.card-ornate::before {
+  top: -28px;
+  left: -28px;
+}
+
+.card-ornate::after {
+  bottom: -28px;
+  right: -28px;
+}
+
 .hero {
   background: linear-gradient(135deg, #fff7f2, #ffe8da);
 }
@@ -405,15 +444,22 @@ textarea {
   gap: 8px;
   overflow: auto;
   padding: 6px 0 2px;
+  align-items: center;
 }
 
 .chip {
   border: 1px solid var(--border);
   background: #fff;
   border-radius: 999px;
-  padding: 6px 12px;
+  padding: 6px 14px;
   font-size: 13px;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  white-space: nowrap;
+  line-height: 1;
 }
 
 .chip.active {
@@ -584,6 +630,9 @@ textarea {
   gap: 18px;
   align-items: center;
   margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 48px;
 }
 
 .page-hero h2 {
@@ -619,6 +668,7 @@ textarea {
   max-width: 240px;
 }
 
+
 .landing {
   margin-top: 24px;
 }
@@ -647,6 +697,20 @@ textarea {
   font-family: var(--font-display);
   font-size: 26px;
   margin: 0 0 6px;
+}
+
+.divider-pattern {
+  height: 10px;
+  margin: 14px 0 18px;
+  border-radius: 999px;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(31, 27, 22, 0.15),
+      rgba(31, 27, 22, 0.15) 6px,
+      transparent 6px,
+      transparent 14px
+    );
 }
 
 .flow-grid {
@@ -940,6 +1004,21 @@ textarea {
   }
 }
 
+@keyframes ambientGlow {
+  0% {
+    transform: translate3d(0, 0, 0);
+    filter: blur(0px);
+  }
+  50% {
+    transform: translate3d(10px, -12px, 0);
+    filter: blur(1px);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    filter: blur(0px);
+  }
+}
+
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -961,4 +1040,5 @@ textarea {
   .menu-scroll {
     max-height: 50vh;
   }
+
 }
