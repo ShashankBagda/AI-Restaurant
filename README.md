@@ -74,6 +74,12 @@ Single command (server + PWA):
 python launch_app.py
 ```
 
+Non-technical launch (double-click):
+
+- Windows: `run.bat`
+- macOS: `run.command` (may need right click -> Open once)
+- Linux: `run.sh`
+
 Backend:
 
 ```bash
