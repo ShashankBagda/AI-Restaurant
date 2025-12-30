@@ -1,0 +1,15 @@
+{
+  "name": "Smart Restaurant",
+  "short_name": "Restaurant",
+  "start_url": "/app/#/customer",
+  "display": "standalone",
+  "background_color": "#f5efe9",
+  "theme_color": "#e8d7c9",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

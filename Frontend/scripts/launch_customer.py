@@ -1,6 +1,7 @@
 import json
 import os
 import socket
+import sys
 import webbrowser
 
 
@@ -31,10 +32,9 @@ def main():
         print("No server found on the local network.")
         return 1
     server_url = f"http://{info['ip']}:{info['http_port']}"
-    page = os.path.join(os.getcwd(), "Frontend", "admin.html")
-    url = f"file:///{page.replace(os.sep, '/')}" + f"?server={server_url}"
+    url = f"{server_url}/app/#/customer"
     webbrowser.open(url)
-    print(f"Opened admin UI with server {server_url}")
+    print(f"Opened customer UI with server {server_url}")
     return 0
 
 

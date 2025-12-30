@@ -98,3 +98,12 @@ Only add Java later if you need enterprise-specific integrations or heavy throug
 ## Notes
 
 Keep the MVP lean. The goal is to demonstrate a complete, believable experience, not full automation.
+
+## Current Build (Implemented)
+
+- React PWA served by FastAPI at `/app` with routes for landing, customer, admin, and kitchen.
+- Customer flow: login/register, menu, cart, checkout, order history, ratings, and AI recommendations.
+- Kitchen flow: chef login with specialty filtering, status updates.
+- Admin ERP: systems online, orders, billing, inventory, users, and menu management.
+- Auth: hashed passwords (PBKDF2) and expiring tokens.
+ - Frontend split into files: `Frontend/app/views/landing.jsx`, `Frontend/app/views/customer.jsx`, `Frontend/app/views/admin.jsx`, `Frontend/app/views/kitchen.jsx`, `Frontend/app/shared/shared.jsx`, `Frontend/app/app.jsx`.

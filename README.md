@@ -68,10 +68,10 @@ We are keeping the stack simple for fast iteration and local Wi-Fi deployment.
 
 ## Quick Start (Local Wi-Fi MVP)
 
-Single command (server only):
+Single command (server + PWA):
 
 ```bash
-python launch_server.py
+python launch_app.py
 ```
 
 Backend:
@@ -82,13 +82,23 @@ pip install -r requirements.txt
 python -m uvicorn app.main:app --host 0.0.0.0 --port 8000
 ```
 
-Frontend:
+Frontend (React PWA, bundled locally):
 
-Open `Frontend/customer.html` for customers and `Frontend/admin.html` for the admin dashboard. Use the discovery helper if needed:
+Open the app at:
 
-```bash
-python Frontend/discover_server.py
-```
+- Landing: `http://127.0.0.1:8000/app/#/landing`
+- Customer: `http://127.0.0.1:8000/app/#/customer`
+- Admin: `http://127.0.0.1:8000/app/#/admin`
+- Kitchen: `http://127.0.0.1:8000/app/#/kitchen`
+
+PWA file layout:
+
+- `Frontend/app/views/landing.jsx`
+- `Frontend/app/views/customer.jsx`
+- `Frontend/app/views/admin.jsx`
+- `Frontend/app/views/kitchen.jsx`
+- `Frontend/app/shared/shared.jsx`
+- `Frontend/app/app.jsx`
 
 Default credentials:
 
@@ -99,22 +109,41 @@ Customer registration:
 
 - Use the Register button on the customer screen to create a new user.
 
+Admin ERP:
+
+- Users, menu, inventory, billing, and orders are inside the admin view.
+
+Real-time orders:
+
+- Customers place orders in the Customer view.
+- Admin updates order status in the Admin view.
+- Chefs see filtered orders in the Kitchen view based on specialty.
+- Orders auto-assign to chefs by item category; admin can override.
+
+Auth hardening:
+
+- Passwords are hashed (PBKDF2) and tokens expire after 1 hour.
+
+Recommendations:
+
+- Customer view includes AI recommendations and preferences.
+
+Billing and ratings:
+
+- Checkout simulates payment and logs in billing.
+- Customers can rate served orders.
+- Live updates flow via WebSocket `/ws/orders`.
+
 Customer auto-discovery (on each customer machine):
 
 ```bash
-python Frontend/launch_customer.py
+python Frontend/scripts/launch_customer.py
 ```
 
 Admin auto-discovery (on any admin machine):
 
 ```bash
-python Frontend/launch_admin.py
-```
-
-Local testing (server + admin + customer on same machine):
-
-```bash
-python start.py
+python Frontend/scripts/launch_admin.py
 ```
 
 ## Vision
